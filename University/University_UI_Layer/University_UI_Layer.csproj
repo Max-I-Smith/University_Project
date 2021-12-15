@@ -168,9 +168,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EnrollmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
+    <Compile Include="Controllers\CoursesController.cs" />
+    <Compile Include="Controllers\ScheduledClassesController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -307,7 +311,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -368,6 +371,29 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery\jquery.min.map" />
     <Content Include="Scripts\jquery\jquery.slim.min.map" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Student\Index.cshtml" />
+    <Content Include="Views\Student\Create.cshtml" />
+    <Content Include="Views\Student\Delete.cshtml" />
+    <Content Include="Views\Student\Edit.cshtml" />
+    <Content Include="Views\Courses\Index.cshtml" />
+    <Content Include="Views\Courses\Create.cshtml" />
+    <Content Include="Views\Courses\Edit.cshtml" />
+    <Content Include="Views\Courses\Delete.cshtml" />
+    <Content Include="Views\ScheduledClasses\Index.cshtml" />
+    <Content Include="Views\ScheduledClasses\Create.cshtml" />
+    <Content Include="Views\ScheduledClasses\Edit.cshtml" />
+    <Content Include="Views\ScheduledClasses\Delete.cshtml" />
+    <Content Include="Views\Enrollment\Index.cshtml" />
+    <Content Include="Views\Enrollment\Create.cshtml" />
+    <Content Include="Views\Enrollment\Edit.cshtml" />
+    <Content Include="Views\Enrollment\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\Documents\Visual Studio 2017\Projects\12_PMD\University_DATA_EF\University_DATA_EF.csproj">
+      <Project>{b7bf4c3b-2069-4e41-8f7c-12eb31462a11}</Project>
+      <Name>University_DATA_EF</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
