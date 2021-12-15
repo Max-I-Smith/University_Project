@@ -246,6 +246,7 @@
     <Content Include="_Archive\vendor\jquery\jquery.min.js" />
     <Content Include="_Archive\vendor\jquery\jquery.slim.js" />
     <Content Include="_Archive\vendor\jquery\jquery.slim.min.js" />
+    <Content Include="connections\connections.Config" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
