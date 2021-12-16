@@ -19,11 +19,26 @@ namespace University_UI_Layer.Controllers
             return View(db.Enrollments.ToList());
         }
 
+        // GET: Enrollment/Details
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Enrollment enrollment = db.Enrollments.Find(id);
+            if (enrollment == null)
+            {
+                return HttpNotFound();
+            }
+            return View(enrollment);
+        }
+
         //GET: Enrollment/Create
         [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
-            ViewBag.ScheduledClassId = new SelectList(db.ScheduledClasses, "ScheduledClassId", "CourseId");
+            ViewBag.ClassInfo = new SelectList(db.ScheduledClasses, "ScheduledClassId", "ClassInfo");
             ViewBag.StudentId = new SelectList(db.Students, "StudentId", "FirstName");
             return View();
         }
@@ -41,7 +56,7 @@ namespace University_UI_Layer.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ScheduledClassId = new SelectList(db.ScheduledClasses, "ScheduledClassId", "CourseId", Enrollment.ScheduledClassId);
+            ViewBag.ClassInfo = new SelectList(db.ScheduledClasses, "ScheduledClassId", "ClassInfo", Enrollment.ScheduledClassId);
             ViewBag.StudentId = new SelectList(db.Students, "StudentId", "FirstName", Enrollment.StudentId);
             return View(Enrollment);
         }
@@ -59,7 +74,7 @@ namespace University_UI_Layer.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ScheduledClassId = new SelectList(db.ScheduledClasses, "ScheduledClassId", "CourseId", Enrollment.ScheduledClassId);
+            ViewBag.ClassInfo = new SelectList(db.ScheduledClasses, "ScheduledClassId", "ClassInfo", Enrollment.ScheduledClassId);
             ViewBag.StudentId = new SelectList(db.Students, "StudentId", "FirstName", Enrollment.StudentId);
             return View(Enrollment);
         }
@@ -79,7 +94,7 @@ namespace University_UI_Layer.Controllers
 
             }
 
-            ViewBag.ScheduledClassId = new SelectList(db.ScheduledClasses, "ScheduledClassId", "CourseId", Enrollment.ScheduledClassId);
+            ViewBag.ClassInfo = new SelectList(db.ScheduledClasses, "ScheduledClassId", "ClassInfo", Enrollment.ScheduledClassId);
             ViewBag.StudentId = new SelectList(db.Students, "StudentId", "FirstName", Enrollment.StudentId);
             return View(Enrollment);
         }

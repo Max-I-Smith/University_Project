@@ -1,0 +1,44 @@
+﻿@model University_DATA_EF.Enrollment
+
+@{
+    ViewBag.Title = "Enrollment Details";
+}
+
+<div>
+    <h4>Enrollment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EnrollmentDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnrollmentDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScheduledClass.InstructorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScheduledClass.InstructorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.FullName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @if (User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.EnrollmentId })
+    }
+
+    @Html.ActionLink("Back to List", "Index")
+</p>

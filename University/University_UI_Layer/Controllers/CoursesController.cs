@@ -19,6 +19,21 @@ namespace University_UI_Layer.Controllers
             return View(db.Courses.ToList());
         }
 
+        // GET: Enrollment/Details
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Course course = db.Courses.Find(id);
+            if (course == null)
+            {
+                return HttpNotFound();
+            }
+            return View(course);
+        }
+
         //GET: Course/Create
         [Authorize(Roles ="Admin")]
         public ActionResult Create()

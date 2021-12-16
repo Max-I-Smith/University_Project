@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.1585
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "University_UI_Layer", "University_UI_Layer\University_UI_Layer.csproj", "{2C085AE1-9AD9-46D8-BA1A-A501645915A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "University_DATA_EF", "..\..\..\..\..\Documents\Visual Studio 2017\Projects\12_PMD\University_DATA_EF\University_DATA_EF.csproj", "{B7BF4C3B-2069-4E41-8F7C-12EB31462A11}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "University_DATA_EF", "University_DATA_EF\University_DATA_EF.csproj", "{B7BF4C3B-2069-4E41-8F7C-12EB31462A11}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

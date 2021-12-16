@@ -1,15 +1,14 @@
 ﻿@model IEnumerable<University_DATA_EF.ScheduledClass>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Scheduled Classes";
 }
 
-<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table table-bordered" style="background-color: gray; color: white">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.StartDate)
@@ -58,10 +57,11 @@
         </td>
         @if (User.IsInRole("Admin"))
         {
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ScheduledClassId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ScheduledClassId })
-            </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ScheduledClassId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ScheduledClassId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ScheduledClassId })
+        </td>
         }
 
     </tr>

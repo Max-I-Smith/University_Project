@@ -1,15 +1,14 @@
 ﻿@model IEnumerable<University_DATA_EF.Course>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Courses";
 }
 
-<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table table-bordered" style="background-color: gray; color: white">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.CourseName)
@@ -59,10 +58,11 @@
         </td>
         @if (User.IsInRole("Admin"))
         {
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.CourseId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.CourseId })
-            </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.CourseId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.CourseId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.CourseId })
+        </td>
         }
 
     </tr>

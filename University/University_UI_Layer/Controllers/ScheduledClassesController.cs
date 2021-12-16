@@ -19,6 +19,21 @@ namespace University_UI_Layer.Controllers
             return View(db.ScheduledClasses.ToList());
         }
 
+        // GET: ScheduledClasses/Details
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ScheduledClass scheduledClass = db.ScheduledClasses.Find(id);
+            if (scheduledClass == null)
+            {
+                return HttpNotFound();
+            }
+            return View(scheduledClass);
+        }
+
         //GET: ScheduledClasses/Create
         [Authorize(Roles = "Admin")]
         public ActionResult Create()
