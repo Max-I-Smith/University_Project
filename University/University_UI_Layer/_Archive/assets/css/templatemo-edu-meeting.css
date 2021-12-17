@@ -91,7 +91,7 @@ html, body {
 
 a {
   text-decoration: none !important;
-  color: #3CF;
+  color: white;
 }
 
 a:hover {
@@ -263,7 +263,7 @@ header
 }
 
 .background-header .main-nav .nav li:hover a {
-  color: #fb5849!important;
+  /*color: #fb5849!important;*/
 }
 
 .background-header .nav li a.active {
@@ -416,7 +416,7 @@ header
 }
 
 .header-area .main-nav .nav li.has-sub ul li a:hover {
-  background: #fff;
+  /*background: #fff;*/
   color: #f5a425!important;
   padding-left: 25px;
 }
@@ -619,7 +619,7 @@ header
   }
   .header-area .main-nav .nav li {
     width: 100%;
-    background: #fff;
+    /*background: #fff;*/
     border-bottom: 1px solid #eee;
     padding-left: 0px !important;
     padding-right: 0px !important;
@@ -629,11 +629,11 @@ header
     line-height: 50px !important;
     padding: 0px !important;
     border: none !important;
-    background: #f7f7f7 !important;
+    /*background: #f7f7f7 !important;*/
     color: #191a20 !important;
   }
   .header-area .main-nav .nav li a:hover {
-    background: #eee !important;
+    /*background: #eee !important;*/
     color: #f5a425!important;
   }
   .header-area .main-nav .nav li.has-sub ul.sub-menu {
@@ -1522,7 +1522,7 @@ section.meetings-page .filters li {
 section.meetings-page .filters ul li.active,
 section.meetings-page .filters ul li:hover {
   background-color: #a12c2f;
-  color: #fff;
+  /*color: #fff;*/
 }
 
 section.meetings-page .pagination {
@@ -1563,7 +1563,7 @@ section.meetings-page .main-button-red a {
 section.meetings-page .pagination ul li.active a,
 section.meetings-page .pagination ul li a:hover {
   background-color: #a12c2f;
-  color: #fff;
+  /*color: #fff;*/
 }
 
 .meeting-single-item .thumb {

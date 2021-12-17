@@ -92,7 +92,7 @@ html, body {
 a {
     padding-right: 15px;
   text-decoration: none !important;
-  color: #3CF;
+  color: white;
 }
 
 a:hover {
@@ -1523,7 +1523,7 @@ section.meetings-page .filters li {
 section.meetings-page .filters ul li.active,
 section.meetings-page .filters ul li:hover {
   background-color: #a12c2f;
-  color: #fff;
+  /*color: #fff;*/
 }
 
 section.meetings-page .pagination {
