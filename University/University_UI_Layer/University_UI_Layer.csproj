@@ -405,6 +405,7 @@
     <Content Include="Views\ScheduledClasses\Details.cshtml" />
     <Content Include="Views\Enrollment\Details.cshtml" />
     <Content Include="Views\Courses\Details.cshtml" />
+    <Content Include="Views\Courses\InActive.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\University_DATA_EF\University_DATA_EF.csproj">

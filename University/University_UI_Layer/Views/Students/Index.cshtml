@@ -5,8 +5,8 @@
 }
 
 
-<p>
-    @Html.ActionLink("Create New", "Create")
+<p style="margin-bottom: 10px;">
+    @Html.ActionLink("Create New", "Create", "Students", new { @class = "btn btn-primary" })
 </p>
 <table class="table table-bordered" style="background-color: gray; color: white">
     <thead>
@@ -79,7 +79,14 @@
                 <td>
                     @*@Html.DisplayFor(modelItem => item.PhotoUrl)*@
                     <a href="@Url.Action("Details", new { id = item.SSID })" title="@item.FullName">
-                        <img src="~/Content/studentImages/@item.PhotoUrl" alt="@item.FullName" style="width: 67px" />
+                        @if (item.PhotoUrl != null)
+                        {
+                            <img src="~/Content/studentImages/@item.PhotoUrl" alt="@item.FullName" style="width: 67px" />
+                        }
+                        else
+                        {
+                            <img src="~/Content/studentImages/studentImageDefault.jpg" alt="Default Student" style="width: 67px" />
+                        }
                     </a>
                 </td>
                 <td>
@@ -88,9 +95,22 @@
                 @if (User.IsInRole("Admin"))
                 {
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.StudentId }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.StudentId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.StudentId })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.StudentId }, new { @class = "btn btn-warning" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.StudentId }, new { @class = "btn btn-info" }) |
+
+                    @if (item.SSID == 2)
+                    {
+                        @Html.ActionLink("Withdraw", "Delete", new { id = item.StudentId }, new { @class = "btn btn-danger" })
+                    }
+                    else if (item.SSID == 3)
+                    {
+                        @Html.ActionLink("Enroll", "Delete", new { id = item.StudentId }, new { @class = "btn btn-success" })
+                    }
+                    else
+                    {
+                            <span class="text-danger">Attending Classes</span>
+                    }
+
                 </td>
                 }
 

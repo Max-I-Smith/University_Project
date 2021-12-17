@@ -5,8 +5,8 @@
 }
 
 
-<p>
-    @Html.ActionLink("Create New", "Create")
+<p style="margin-bottom: 10px;">
+    @Html.ActionLink("Create New", "Create", "ScheduledClasses", new { @class = "btn btn-primary" })
 </p>
 <table class="table table-bordered" style="background-color: gray; color: white">
     <tr>
@@ -58,9 +58,9 @@
         @if (User.IsInRole("Admin"))
         {
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.ScheduledClassId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ScheduledClassId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ScheduledClassId })
+            @Html.ActionLink("Edit", "Edit", new { id = item.ScheduledClassId }, new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ScheduledClassId }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ScheduledClassId }, new { @class = "btn btn-danger" } )
         </td>
         }
 

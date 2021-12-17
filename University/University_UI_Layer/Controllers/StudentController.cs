@@ -36,7 +36,7 @@ namespace University_UI_Layer.Controllers
         }
 
         //GET: Student/Create
-        [Authorize(Roles ="Admin")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             ViewBag.SSID = new SelectList(db.StudentStatuses, "SSID", "SSName");
@@ -47,7 +47,7 @@ namespace University_UI_Layer.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Create([Bind(Include ="StudentID,FirstName,LastName,Major,Address,City,State,Zipcode,Phone,Email,PhotoURL,SSID")] Student student, HttpPostedFileBase photoUrl)
+        public ActionResult Create([Bind(Include = "StudentID,FirstName,LastName,Major,Address,City,State,Zipcode,Phone,Email,PhotoURL,SSID")] Student student, HttpPostedFileBase photoUrl)
         {
             if (ModelState.IsValid)
             {
@@ -111,7 +111,7 @@ namespace University_UI_Layer.Controllers
             {
                 return HttpNotFound();
             }
-            
+
             ViewBag.SSID = new SelectList(db.StudentStatuses, "SSID", "SSName");
             return View(student);
         }
@@ -170,11 +170,11 @@ namespace University_UI_Layer.Controllers
                 ViewBag.SSID = new SelectList(db.StudentStatuses, "SSID", "SSName", student.SSID);
                 return View(student);
             }
-            
+
         }
 
         //GET: Student/Delete
-        [Authorize(Roles ="Admin")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -186,18 +186,26 @@ namespace University_UI_Layer.Controllers
             {
                 return HttpNotFound();
             }
-            
+
             return View(student);
         }
 
         //POST: Student/Delete
-        [Authorize(Roles ="Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+
             Student student = db.Students.Find(id);
-            db.Students.Remove(student);
+            if (student.SSID == 2)
+            {
+                student.SSID = 3;
+            }
+            else
+            {
+                student.SSID = 2;
+            }
             db.SaveChanges();
             return RedirectToAction("Index");
         }

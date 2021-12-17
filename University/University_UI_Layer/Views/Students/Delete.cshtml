@@ -4,13 +4,12 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<h2 style="color: white">Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Student</h4>
+    <h4 style="color: white">Student</h4>
     <hr />
-    <dl class="dl-horizontal">
+    <dl class="dl-horizontal" style="color: white">
         <dt>
             @Html.DisplayNameFor(model => model.FirstName)
         </dt>
@@ -104,9 +103,16 @@
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+    <div class="form-actions no-color">
+        @if (Model.SSID == 2)
+        {
+            <input type="submit" value="Withdraw" class="btn btn-danger" />
+        }
+        else
+        {
+            <input type="submit" value="Enroll" class="btn btn-primary" />
+        }
+        @Html.ActionLink("Cancel", "Index")
+    </div>
     }
 </div>

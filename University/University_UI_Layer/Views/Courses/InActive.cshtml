@@ -1,15 +1,13 @@
 ﻿@model IEnumerable<University_DATA_EF.Course>
 
 @{
-    ViewBag.Title = "Courses";
+    ViewBag.Title = "InActive";
 }
 
+<h2 style="color: white;">InActive</h2>
 
-<p style="margin-bottom: 10px;">
-    @Html.ActionLink("Create New", "Create", "Courses", new { @class="btn btn-primary"})
-</p>
 <p>
-    @Html.ActionLink("View InActive Courses", "InActive", "Courses", new { @class = "btn btn-danger btn-sm" })
+    @Html.ActionLink("View Active Courses", "Index", "Courses", new { @class = "btn btn-success btn-sm" })
 </p>
 <table class="table table-bordered" style="background-color: gray; color: white">
     <tr>
@@ -29,13 +27,12 @@
             @Html.DisplayNameFor(model => model.Notes)
         </th>
         @*<th>
-            @Html.DisplayNameFor(model => model.IsActive)
-        </th>*@
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>*@
         @if (User.IsInRole("Admin"))
         {
             <th></th>
         }
-
     </tr>
 
     @foreach (var item in Model)
@@ -61,11 +58,11 @@
         </td>*@
         @if (User.IsInRole("Admin"))
         {
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.CourseId }, new { @class = "btn btn-warning" } ) |
-            @Html.ActionLink("Details", "Details", new { id = item.CourseId }, new { @class = "btn btn-info" } ) |
-            @Html.ActionLink("Deactivate", "Delete", new { id = item.CourseId }, new { @class = "btn btn-danger" } )
-        </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CourseId }, new { @class = "btn btn-warning" }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CourseId }, new { @class = "btn btn-info" }) |
+                @Html.ActionLink("Activate", "Delete", new { id = item.CourseId }, new { @class = "btn btn-success" } )
+            </td>
         }
 
     </tr>

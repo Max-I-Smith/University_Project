@@ -16,7 +16,12 @@ namespace University_UI_Layer.Controllers
         // GET: Course
         public ActionResult Index()
         {
-            return View(db.Courses.ToList());
+            return View(db.Courses.Where(var => var.IsActive == true).ToList());
+        }
+
+        public ActionResult InActive()
+        {
+            return View(db.Courses.Where(var => var.IsActive == false).ToList());
         }
 
         // GET: Enrollment/Details
@@ -65,12 +70,12 @@ namespace University_UI_Layer.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Course Course = db.Courses.Find(id);
-            if (Course == null)
+            Course course = db.Courses.Find(id);
+            if (course == null)
             {
                 return HttpNotFound();
             }
-            return View(Course);
+            return View(course);
         }
 
         //POST: Course/Edit
@@ -99,12 +104,12 @@ namespace University_UI_Layer.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Course Course = db.Courses.Find(id);
-            if (Course == null)
+            Course course = db.Courses.Find(id);
+            if (course == null)
             {
                 return HttpNotFound();
             }
-            return View(Course);
+            return View(course);
         }
 
         //POST: Course/Delete
@@ -113,8 +118,8 @@ namespace University_UI_Layer.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Course Course = db.Courses.Find(id);
-            db.Courses.Remove(Course);
+            Course course = db.Courses.Find(id);
+            course.IsActive = !course.IsActive;
             db.SaveChanges();
             return RedirectToAction("Index");
         }
